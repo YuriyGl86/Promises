@@ -1,4 +1,5 @@
 import GameSavingLoader from '../app';
+import GameSaving from '../gameSaving';
 
 test('testing promise', async (done) => {
   const data = await GameSavingLoader.load();
@@ -9,5 +10,11 @@ test('testing promise', async (done) => {
       id: 1, name: 'Hitman', level: 10, points: 2000,
     },
   });
+  done();
+});
+
+test('testing promise', async (done) => {
+  const data = await GameSavingLoader.load();
+  expect(data).toBeInstanceOf(GameSaving);
   done();
 });
